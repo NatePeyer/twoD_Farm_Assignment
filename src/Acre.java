@@ -18,9 +18,9 @@ public class Acre
     }
 
     // constuctor #2
-    public Acre(Boolean ableToGrowIn)
+    public Acre()
     {
-        cropType = null;
+        cropType = "No Crops";
         sellPrice = 0;
         costToGrow = 0;
         daysToGrow = 0;
@@ -60,5 +60,22 @@ public class Acre
         int times = daysToGrow / numDaysIn;
         income = (sellPrice * times) - (costToGrow * times);
         return income;
+    }
+
+    //toString method.
+    public String toString()
+    {
+        String print = "";
+
+        if(ableToGrow == false)
+        {
+            print = cropType;
+        }
+        else
+        {
+            //print = ("Crop: " Corn "Sell Price: " $153.0 "Cost: "$103.0 "\tDays to Harvest: " 60)
+            print = String.format("Crop: %s Sell Price: $%.2f Cost: $%.2f Days to Harvest: %d", cropType, sellPrice, costToGrow, daysToGrow);
+        }
+        return print;
     }
 }
