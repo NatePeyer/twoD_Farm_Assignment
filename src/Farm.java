@@ -30,6 +30,7 @@ public class Farm
         System.out.println("0. Not an area we can grow crops");
         System.out.println("What would you like to grow in row " + row + ", column " + column + ": ");
         int input = scan.nextInt();
+        scan.nextLine();
         return CROPS[input];
     }
     
@@ -50,5 +51,22 @@ public class Farm
                 }
             }
         }
+    }
+    //public void countAcres(int check)
+    //{
+
+    //}
+
+    public String toString()
+    {
+        String temp = "";
+        for(int i = 0; i < cropAcre.length; i++)
+        {
+             for(int j = 0; j < cropAcre[i].length; j++)
+            {
+                 temp = ("Row: " + (i+1) + " Column: " + (j+1) +"\t" + cropAcre[i][j].toString());
+            }
+        }
+        return temp;
     }
 }

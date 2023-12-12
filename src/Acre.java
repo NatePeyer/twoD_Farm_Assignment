@@ -74,7 +74,7 @@ public class Acre
         else
         {
             //print = ("Crop: " Corn "Sell Price: " $153.0 "Cost: "$103.0 "\tDays to Harvest: " 60)
-            print = String.format("Crop: %s Sell Price: $%.2f Cost: $%.2f Days to Harvest: %d", cropType, sellPrice, costToGrow, daysToGrow);
+            print = String.format("Crop: %s \tSell Price: $%.2f \tCost: $%.2f \tDays to Harvest: %d", cropType, sellPrice, costToGrow, daysToGrow);
         }
         return print;
     }
