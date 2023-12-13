@@ -36,7 +36,7 @@ public class Acre
     // checks if there are enough days to grow the crop.
     public boolean enoughDays(int daysIn)
     {
-        if(daysIn > daysToGrow)
+        if((daysIn > daysToGrow) && (daysToGrow != 0))
         {
             return true;
         }
@@ -57,7 +57,7 @@ public class Acre
     public double income(int numDaysIn)
     {
         //temp variable for how many times in a given period a crop can be planted and harvested
-        int times = daysToGrow / numDaysIn;
+        int times = numDaysIn / daysToGrow;
         income = (sellPrice * times) - (costToGrow * times);
         return income;
     }

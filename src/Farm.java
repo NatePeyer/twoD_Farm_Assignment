@@ -21,14 +21,14 @@ public class Farm
         cropAcre = new Acre[rowsIn][columnsIn];
     }
 
-    private Crops getCrop(int row, int column)
+    public Crops getCrop(String prompt)
     {
         for(int i = 1; i < CROPS.length; i++)
         {
-            System.out.println((i+1) + ". " + CROPS[i].cropType);
+            System.out.println((i) + ". " + CROPS[i].cropType);
         }
         System.out.println("0. Not an area we can grow crops");
-        System.out.println("What would you like to grow in row " + row + ", column " + column + ": ");
+        System.out.println(prompt);
         int input = scan.nextInt();
         scan.nextLine();
         return CROPS[input];
@@ -40,7 +40,7 @@ public class Farm
         {
             for(int j = 0; j< cropAcre[i].length; j++)
             {
-                Crops input = getCrop(i, j);
+                Crops input = getCrop("What would you like to grow in row " + (i + 1) + ", column " + (j + 1) + ": ");
                 if(input.cropType != "No Crops")
                 {
                     cropAcre[i][j] = new Acre(input.cropType, input.sellPrice, input.costToGrow, input.daysToGrow, true);
@@ -64,7 +64,7 @@ public class Farm
         {
              for(int j = 0; j < cropAcre[i].length; j++)
             {
-                 temp = ("Row: " + (i+1) + " Column: " + (j+1) +"\t" + cropAcre[i][j].toString());
+                 temp += ("Row: " + (i+1) + " Column: " + (j+1) +"\t" + cropAcre[i][j].toString() + "\n");
             }
         }
         return temp;
