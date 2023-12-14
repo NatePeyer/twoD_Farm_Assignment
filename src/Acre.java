@@ -56,6 +56,11 @@ public class Acre
     // calculates income over a period of time.
     public double income(int numDaysIn)
     {
+        // isolates no crop case and returns that it will result in no income.
+        if(daysToGrow == 0)
+        {
+            return 0.0;
+        }
         //temp variable for how many times in a given period a crop can be planted and harvested
         int times = numDaysIn / daysToGrow;
         income = (sellPrice * times) - (costToGrow * times);

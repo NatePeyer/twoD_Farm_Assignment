@@ -21,16 +21,25 @@ public class Farm
         cropAcre = new Acre[rowsIn][columnsIn];
     }
 
+    //todo range check input
     public Crops getCrop(String prompt)
     {
-        for(int i = 1; i < CROPS.length; i++)
+        int input = -1;
+        while ((input < 0) || (input > CROPS.length - 1))
         {
-            System.out.println((i) + ". " + CROPS[i].cropType);
+            for(int i = 1; i < CROPS.length; i++)
+            {
+                System.out.println((i) + ". " + CROPS[i].cropType);
+            }
+            System.out.println("0. Not an area we can grow crops.");
+            System.out.print(prompt);
+            input = scan.nextInt();
+            scan.nextLine();
+            if ((input < 0) || (input > CROPS.length - 1))
+            {
+                System.out.println("Please input a valid crop type.");
+            }
         }
-        System.out.println("0. Not an area we can grow crops");
-        System.out.println(prompt);
-        int input = scan.nextInt();
-        scan.nextLine();
         return CROPS[input];
     }
     

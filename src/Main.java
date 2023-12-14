@@ -58,8 +58,8 @@ public class Main {
                     System.out.print("Column: ");
                     int column = scan.nextInt();
                     scan.nextLine();
-                    // todo check for zero
-                    if((row > yourFarm.cropAcre.length) || (column > yourFarm.cropAcre[0].length))
+                    if(((row > yourFarm.cropAcre.length) || (column > yourFarm.cropAcre[0].length)) ||
+                       ((row == 0) || (column == 0)))
                     {
                         System.out.println("Please enter a valid acre location.");
                     }
@@ -95,7 +95,9 @@ public class Main {
                     {
                         for(int j = 0; j < yourFarm.cropAcre[i].length; j++)
                         {
-                            System.out.println("Row: " + (i+1) + " Column: " + (j+1) + "\t" + yourFarm.cropAcre[i][j].getCrop() + " will make $" + yourFarm.cropAcre[i][j].income());
+                            //System.out.println("Row: " + (i+1) + " Column: " + (j+1) + "\t" + yourFarm.cropAcre[i][j].getCrop() + " will make $" + yourFarm.cropAcre[i][j].income());
+                            System.out.println(String.format("Row: %d Column: %d\t%s will make $%.2f", 
+                                               i+1, j+1, yourFarm.cropAcre[i][j].getCrop(), yourFarm.cropAcre[i][j].income()));
                         }
                     }
                     break;
@@ -108,29 +110,31 @@ public class Main {
                     {
                         for(int j = 0; j < yourFarm.cropAcre[i].length; j++)
                         {
-                            System.out.println("Row: " + (i+1) + " Column: " + (j+1) + "\t" + yourFarm.cropAcre[i][j].getCrop() + " will make $" + yourFarm.cropAcre[i][j].income(days));
+                            //System.out.println("Row: " + (i+1) + " Column: " + (j+1) + "\t" + yourFarm.cropAcre[i][j].getCrop() + " will make $" + yourFarm.cropAcre[i][j].income(days));
+                            System.out.println(String.format("Row: %d Column: %d\t%s will make $%.2f", 
+                                               i+1, j+1, yourFarm.cropAcre[i][j].getCrop(), yourFarm.cropAcre[i][j].income(days)));
                         }
                     }
                     break;
                 case 9:
                     //quit
                     run = false;
-                    System.out.println("You have quit 2D farm your progress was not saved");
+                    System.out.println("You have quit 2D farm your progress was not saved.");
                     break;
                 default:
-                    System.out.println("The option you entered was not on the list please try again");
+                    System.out.println("The option you entered was not on the list please try again.");
             }
         }
         scan.close();
     }
     public static void showMenu()
     {
-        System.out.println("1. Print all crops");
-        System.out.println("2. Count acres of a crop");
-        System.out.println("3. Change an acre to bad");
-        System.out.println("4. Check what crops will be harvested in a number of days");
-        System.out.println("5. Income per harvest");
-        System.out.println("6. Total income percrop over a number of days");
-        System.out.println("9. Quit");
+        System.out.println("1. Print all crops.");
+        System.out.println("2. Count acres of a crop.");
+        System.out.println("3. Change an acre to bad.");
+        System.out.println("4. Check what crops will be harvested in a number of days.");
+        System.out.println("5. Income per harvest.");
+        System.out.println("6. Total income per crop over a number of days.");
+        System.out.println("9. Quit.");
     }
 }
